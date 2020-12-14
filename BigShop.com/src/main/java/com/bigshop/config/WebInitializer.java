@@ -19,7 +19,7 @@ public class WebInitializer implements WebApplicationInitializer {
 	 
 	    sc.addListener(new ContextLoaderListener(root));
 	 
-	    ServletRegistration.Dynamic appServlet = sc.addServlet("appServlet",
+	    ServletRegistration.Dynamic appServlet = sc.addServlet("dispatcher",
 	        new DispatcherServlet(new GenericWebApplicationContext()));
 	    appServlet.setLoadOnStartup(1);
 	    appServlet.addMapping("/");

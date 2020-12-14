@@ -120,7 +120,7 @@
 				</div>
 				<form:form class="table" modelAttribute="product" methodParam="POST"
 					action="${pageContext.request.contextPath}/admin/save"
-					method="POST">
+					method="POST" enctype="multipart/form-data">
 					<table>
 						<caption>Thêm sản phẩm</caption>
 
