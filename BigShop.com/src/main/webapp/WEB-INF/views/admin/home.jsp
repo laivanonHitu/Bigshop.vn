@@ -113,18 +113,14 @@
 
 								<i class="ace-icon fa fa-check green"></i> Welcome to <strong
 									class="green"> Ace <small>(v1.3.3)</small>
-								</strong>, легкий, много-функциональный и простой в использовании шаблон
-								для админки на bootstrap 3.3. Загрузить исходники с <a
-									href="https://github.com/bopoda/ace">github</a> (with minified
-								ace js files).
+									Truy cập trang web bán hàng tại <a href="${pageContext.request.contextPath}/home" target="_blank">đây</a>
+								</strong>
 							</div>
 						</div>
 					</div>
 				</div>
 				
 				<a href="<c:url value="/admin/them-san-pham"/>" class="btn btn-success">Thêm sản phẩm</a>
-				<a href="" class="btn btn-danger">Xóa</a>
-				<a href="" class="btn btn-primary">Sửa</a>
 				<table class="table ">
 					<thead class="thead-dark">
 						<tr>
@@ -148,12 +144,12 @@
 					<c:forEach items="${product}" var="items" varStatus="loop" begin="0" end="${product.size()}">
 						<tr>
 							<th scope="row">${loop.index}</th>
-							<td>${items.getName()}</td>
+							<td><a href="${pageContext.request.contextPath}/admin/chi-tiet-san-pham/id/${items.getId()}">${items.getName()}</a></td>
 							<td>${items.getPrice()}</td>
 							<td>${items.getPrice_dis()}</td>
-							<td><img src="${pageContext.request.contextPath}/assets/web/image/product/${items.getImage()}"></td>
-							<td><img src="${pageContext.request.contextPath}/assets/web/image/product/${items.getImage()}"></td>
-							<td><img src="${pageContext.request.contextPath}/assets/web/image/product/${items.getImage()}"></td>
+							<td><a href="${pageContext.request.contextPath}/admin/chi-tiet-san-pham/id/${items.getId()}"><img src="${pageContext.request.contextPath}/assets/web/image/product/${items.getImage()}" height="100"></a></td>
+							<td><img src="${pageContext.request.contextPath}/assets/web/image/product/${items.getImage()}" height="150"></td>
+							<td><img src="${pageContext.request.contextPath}/assets/web/image/product/${items.getImage()}" height="50"></td>
 							<td>${items.getShort_decription()}</td>
 							<td>${items.getDecription()}</td>
 							<td>${items.getWeight()}</td>

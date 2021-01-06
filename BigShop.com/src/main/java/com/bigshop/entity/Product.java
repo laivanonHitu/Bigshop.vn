@@ -1,5 +1,6 @@
 package com.bigshop.entity;
 
+import java.io.Serializable;
 import java.sql.Timestamp;
 
 import javax.persistence.Column;
@@ -8,10 +9,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.web.multipart.MultipartFile;
 
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements Serializable {
+
+	private static final long serialVersionUID = 7496271916357336817L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
@@ -47,14 +55,36 @@ public class Product {
 	@Column(name = "inventory")
 	private int inventory;
 
+	@Column(name = "product_code")
+	private String product_code;
+
+	@Column(name = "brand")
+	private String brand;
+
 	@Column(name = "id_category")
 	private int id_category;
 
 	@Column(name = "hidden")
 	private boolean hidden;
-	
+
 	@Column(name = "modifieddate")
 	private Timestamp modifieddate;
+	
+	public String getProduct_code() {
+		return product_code;
+	}
+
+	public void setProduct_code(String product_code) {
+		this.product_code = product_code;
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public void setBrand(String brand) {
+		this.brand = brand;
+	}
 
 	public Timestamp getModifieddate() {
 		return modifieddate;
@@ -170,6 +200,54 @@ public class Product {
 
 	public Product() {
 		super();
+	}
+
+	public Product(String name, Double price, Double price_dis, String image, String image_thumnail, String image_large,
+			String short_decription, String decription, String weight, int inventory, String product_code, String brand,
+			int id_category, boolean hidden, Timestamp modifieddate) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.price_dis = price_dis;
+		this.image = image;
+		this.image_thumnail = image_thumnail;
+		this.image_large = image_large;
+		this.short_decription = short_decription;
+		this.decription = decription;
+		this.weight = weight;
+		this.inventory = inventory;
+		this.product_code = product_code;
+		this.brand = brand;
+		this.id_category = id_category;
+		this.hidden = hidden;
+		this.modifieddate = modifieddate;
+	}
+
+	public Product(int id, String name, Double price, Double price_dis, String image, String image_thumnail,
+			String image_large, String short_decription, String decription, String weight, int inventory,
+			String product_code, String brand, int id_category, boolean hidden, Timestamp modifieddate) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.price_dis = price_dis;
+		this.image = image;
+		this.image_thumnail = image_thumnail;
+		this.image_large = image_large;
+		this.short_decription = short_decription;
+		this.decription = decription;
+		this.weight = weight;
+		this.inventory = inventory;
+		this.product_code = product_code;
+		this.brand = brand;
+		this.id_category = id_category;
+		this.hidden = hidden;
+		this.modifieddate = modifieddate;
+	}
+
+	public Product(String name) {
+		super();
+		this.name = name;
 	}
 
 }

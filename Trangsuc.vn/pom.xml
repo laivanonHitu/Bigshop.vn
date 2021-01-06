@@ -21,8 +21,6 @@
 		<commons-dbcp2.version>2.1.1</commons-dbcp2.version>
 		<!-- Spring security -->
 		<spring.security.version>5.0.0.RELEASE</spring.security.version>
-
-
 		<!-- web and admin -->
 
 		<sitemesh-version>2.4.2</sitemesh-version>
@@ -44,7 +42,7 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>4.2.0.Final</version>
+			<version>${hibernate-core.version}</version>
 		</dependency>
 
 		<dependency>
@@ -174,25 +172,15 @@
 			<version>${commons-dbcp2.version}</version>
 		</dependency>
 
-		<!-- spring-orm -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>4.0.3.RELEASE</version>
-		</dependency>
+		
 
 		<!-- hibernate-entitymanager -->
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.11.Final</version>
+			<version>${hibernate-core.version}</version>
 		</dependency>
-		<!-- spring-orm -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>4.0.3.RELEASE</version>
-		</dependency>
+
 
 		<!-- /spring-test -->
 		<dependency>
@@ -215,13 +203,7 @@
 			<artifactId>slf4j-api</artifactId>
 			<version>${slf4j-api-version}</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-orm</artifactId>
-			<version>4.0.3.RELEASE</version>
-		</dependency>
-
+	
 
 
 		<!-- mysql-connector-java -->

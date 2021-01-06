@@ -118,35 +118,47 @@
 						</div>
 					</div>
 				</div>
-				<form:form class="table" modelAttribute="product" methodParam="POST"
+
+
+
+				<form class="table"
 					action="${pageContext.request.contextPath}/admin/save"
 					method="POST" enctype="multipart/form-data">
 					<table>
 						<caption>Thêm sản phẩm</caption>
 
-
 						<tr>
 							<td>Tên sản phẩm:</td>
-							<td><form:input path="name" /></td>
+							<td><input name="name" type="text"
+								placeholder="nhập tên sản phẩm" /></td>
 						</tr>
-
+						<tr>
+							<td>Hình ảnh:</td>
+							<td><input type="file" value="chọn hình ảnh" name="image"
+								id="image" /></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center"><input type="submit"
+								value="Submit"></td>
+						</tr>
+					</table>
+				</form>
+				
+				
+				<!-- 	
 						<tr>
 							<td>Giá sản phẩm:</td>
-							<td><form:input path="price" maxlength="10" /></td>
+							<td><input name="price" type="number" maxlength="10" placeholder="nhập giá sản phẩm"/></td>
 						</tr>
 
 						<tr>
 							<td>Giá khuyễn mại phẩm:</td>
-							<td><form:input path="price_dis" maxlength="10" /></td>
-						</tr>
+							<td><input name="price_dis" type="number" placeholder="nhập giá khuyễn mại sản phẩm"/></td>
+						</tr> -->
 
+
+				<%-- 
 						<tr>
-							<td>Hình ảnh:</td>
-							<form:hidden path="image"/>
-							<td><input type="file" value="chọn hình ảnh" name="image" id="image"/></td>
-						</tr>
-
-					<%-- 	<tr>
 							<td>Hình ảnh nhỏ:</td>
 							<form:hidden path="image_thumnail"/>
 							<td><input type="file" value="chọn hình ảnh" name="image" id="image_thumnail"/></td>
@@ -156,44 +168,39 @@
 							<td>Hình ảnh lớn:</td>
 							<form:hidden path="image_large"/>
 							<td><input type="file" value="chọn hình ảnh" name="image" id="image_large"/></td>
-						</tr> --%>
+						</tr>
 						
 						<tr>
 							<td>Mô tả ngắn gọn</td>
-							<td><form:textarea id="editor1" path="short_decription" /></td>
+							<td><textarea id="editor1" name="short_decription" ></textarea></td>
 						</tr>
 						
 						<tr>
 							<td>Mô tả chi tiết:</td>
-							<td><form:textarea id="editor" path="decription" /></td>
+							<td><textarea id="editor" name="decription" ></textarea></td>
 						</tr>
 
 						<tr>
 							<td>Khối lượng :</td>
-							<td><form:input path="weight" /></td>
+							<td><input name="weight" /></td>
 						</tr>
 
 						<tr>
 							<td>Tồn kho:</td>
-							<td><form:input path="inventory" /></td>
+							<td><input name="inventory" /></td>
 						</tr>
 
 						<tr>
 							<td>Khối lượng :</td>
-							<td><form:input path="weight" /></td>
+							<td><input name = "weight"/></td>
 						</tr>
 
 						<tr>
 							<td>Ngày tạo:</td>
-							<td><form:input path="modifieddate" /></td>
-						</tr>
+							<td><input name = "modifieddate"  /></td>
+						</tr> --%>
 
-						<tr>
-							<td colspan="2" align="center"><input type="submit"
-								value="Save"></td>
-						</tr>
-					</table>
-				</form:form>
+
 			</div>
 		</div>
 	</div>
@@ -205,14 +212,14 @@
 
 	<script type="text/javascript">
 		window.jQuery
-				|| document.write("<script src='assets/js/jquery.min.js'>"
+				|| document.write("<script src='<%=request.getContextPath()%>/assets/js/jquery.min.js'>"
 						+ "<"+"/script>");
 	</script>
 
 	<script type="text/javascript">
 		if ('ontouchstart' in document.documentElement)
 			document
-					.write("<script src='assets/js/jquery.mobile.custom.min.js'>"
+					.write("<script src='<%=request.getContextPath()%>/assets/js/jquery.mobile.custom.min.js'>"
 							+ "<"+"/script>");
 	</script>
 	<script
@@ -504,19 +511,20 @@
 
 		})
 	</script>
-	
+
 	<script
 		src="${pageContext.request.contextPath}/assets/ckeditor/ckeditor.js"></script>
 	<script
 		src="${pageContext.request.contextPath}/assets/ckfinder/ckfinder.js"></script>
-		
+
 	<script type="text/javascript">
 		var editor = CKEDITOR.replace("editor1");
 		CKFinder.setupCKEditor(editor1, '<%=request.getContextPath()%>/assets/ckfinder/');
 	</script>
 	<script type="text/javascript">
 		var editor = CKEDITOR.replace("editor");
-		CKFinder.setupCKEditor(editor, '<%=request.getContextPath()%>/assets/ckfinder/');
+		CKFinder.setupCKEditor(editor, '<%=request.getContextPath()%>
+		/assets/ckfinder/');
 	</script>
 </body>
 </html>

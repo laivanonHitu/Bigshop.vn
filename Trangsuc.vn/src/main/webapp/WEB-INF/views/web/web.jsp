@@ -23,7 +23,7 @@ Body Section
 								<div class="item">
 							</c:if>
 							<img style="width: 100%"
-								src="<c:url value="/assets/user/img/slide/${ item.image }"/>"
+								src="<c:url value="/assets/user/img/slide/${item.image}"/>"
 								alt="bootstrap ecommerce templates">
 							<div class="carousel-caption">
 								<h4>${ item.title }</h4>

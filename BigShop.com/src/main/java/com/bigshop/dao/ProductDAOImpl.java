@@ -3,28 +3,35 @@ package com.bigshop.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
-
 import com.bigshop.entity.Post;
 import com.bigshop.entity.Product;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
+	
+	private static SessionFactory sessionFactory = null;
 	@Autowired
-	SessionFactory sessionFactory;
-	Logger logger = LoggerFactory.getLogger(postDAOImpl.class);
+	@Qualifier(value = "sessionFactory")
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		ProductDAOImpl.sessionFactory = sessionFactory;
+	}
+
+	Logger logger = LoggerFactory.getLogger(ProductDAOImpl.class);
 
 	@Override
 	public void save(Product product) {
 		try {
 			Session session = sessionFactory.getCurrentSession();
-			session.persist(product);
+			session.save(product);
 			logger.debug("save product info" + session);
 		} catch (Exception e) {
 			System.out.println("error save product " + e.getMessage());
@@ -43,7 +50,7 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public void updatePost(Product product) {
+	public void updateProduct(Product product) {
 
 	}
 
@@ -58,8 +65,7 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
-	public Post getPostById(int id) {
-		return null;
+	public Product getProductById(int id) {
+		return ((Product) sessionFactory.getCurrentSession().get(Product.class, id));
 	}
-
 }

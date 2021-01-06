@@ -7,7 +7,7 @@
 		<div id="language">
 			Language
 			<ul>
-				<li><a title="English"><img src="assets/web/image/flags/gb.png"
+				<li><a title="English"><img src="${pageContext.request.contextPath}/assets/web/image/flags/gb.png"
 						alt="English" />English</a></li>
 			</ul>
 		</div>
@@ -61,28 +61,28 @@
 							<td class="quantity">x&nbsp;1</td>
 							<td class="total">$236.99</td>
 							<td class="remove"><img title="Remove" alt="Remove"
-								src="assets/web/image/remove-small.png"></td>
+								src="${pageContext.request.contextPath}/assets/web/image/remove-small.png"></td>
 						</tr>
 						<tr>
 							<td class="image"><a href="product.html"><img
 									title="Eyewear Eyeglasses" alt="Eyewear Eyeglasses" width="43"
-									height="43" src="assets/web/image/product/apple_cinema_30-60x60.jpg"></a></td>
+									height="43" src="${pageContext.request.contextPath}/assets/web/image/product/apple_cinema_30-60x60.jpg"></a></td>
 							<td class="name"><a href="product.html">Eyewear
 									Eyeglasses</a></td>
 							<td class="quantity">x&nbsp;1</td>
 							<td class="total">$119.50</td>
 							<td class="remove"><img title="Remove" alt="Remove"
-								src="assets/web/image/remove-small.png"></td>
+								src="${pageContext.request.contextPath}/assets/web/image/remove-small.png"></td>
 						</tr>
 						<tr>
 							<td class="image"><a href="product.html"><img
 									title="Nail Polish" alt="Nail Polish" width="43" height="43"
-									src="assets/web/image/product/hp_1-60x60.jpg"></a></td>
+									src="${pageContext.request.contextPath}/assets/web/image/product/hp_1-60x60.jpg"></a></td>
 							<td class="name"><a href="product.html">Nail Polish</a></td>
 							<td class="quantity">x&nbsp;1</td>
 							<td class="total">$119.50</td>
 							<td class="remove"><img title="Remove" alt="Remove"
-								src="assets/web/image/remove-small.png"></td>
+								src="${pageContext.request.contextPath}/assets/web/image/remove-small.png"></td>
 						</tr>
 					</tbody>
 				</table>

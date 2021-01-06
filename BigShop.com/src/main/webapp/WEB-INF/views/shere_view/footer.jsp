@@ -46,23 +46,23 @@
 	</div>
 	<div class="social">
 		<a href="assets/web/http://facebook.com/160281810726316" target="_blank"><img
-			src="assets/web/image/facebook.png" alt="Facebook" title="Facebook"></a> <a
+			src="${pageContext.request.contextPath}/assets/web/image/facebook.png" alt="Facebook" title="Facebook"></a> <a
 			href="assets/web/https://twitter.com/#!/#" target="_blank"><img
-			src="assets/web/image/twitter.png" alt="Twitter" title="Twitter"></a> <a
+			src="${pageContext.request.contextPath}/assets/web/image/twitter.png" alt="Twitter" title="Twitter"></a> <a
 			href="assets/web/https://plus.google.com/u/0/#" target="_blank"><img
-			src="assets/web/image/googleplus.png" alt="Google+" title="Google+"></a> <a
+			src="${pageContext.request.contextPath}/assets/web/image/googleplus.png" alt="Google+" title="Google+"></a> <a
 			href="assets/web/http://pinterest.com/#" target="_blank"><img
-			src="assets/web/image/pinterest.png" alt="Pinterest" title="Pinterest"></a> <a
-			href="assets/web/#" target="_blank"><img src="assets/web/image/rss.png" alt="RSS"
+			src="${pageContext.request.contextPath}/assets/web/image/pinterest.png" alt="Pinterest" title="Pinterest"></a> <a
+			href="assets/web/#" target="_blank"><img src="${pageContext.request.contextPath}/assets/web/image/rss.png" alt="RSS"
 			title="RSS"></a> <a href="assets/web/http://www.vimeo.com/#" target="_blank"><img
-			src="assets/web/image/vimeo.png" alt="Vimeo" title="Vimeo"></a> <a
+			src="${pageContext.request.contextPath}/assets/web/image/vimeo.png" alt="Vimeo" title="Vimeo"></a> <a
 			href="assets/web/http://www.flickr.com/photos/#" target="_blank"><img
-			src="assets/web/image/flickr.png" alt="flickr" title="Flickr"></a> <a
+			src="${pageContext.request.contextPath}/assets/web/image/flickr.png" alt="flickr" title="Flickr"></a> <a
 			href="assets/web/http://www.youtube.com/#" target="_blank"><img
-			src="assets/web/image/youtube.png" alt="YouTube" title="YouTube"></a> <a
-			href="assets/web/skype:#?call" target="_blank"><img src="assets/web/image/skype.png"
+			src="${pageContext.request.contextPath}/assets/web/image/youtube.png" alt="YouTube" title="YouTube"></a> <a
+			href="assets/web/skype:#?call" target="_blank"><img src="${pageContext.request.contextPath}/assets/web/image/skype.png"
 			alt="skype" title="Skype"></a> <a href="assets/web/#" target="_blank"><img
-			src="assets/web/image/blogger.png" alt="Blogger" title="Blogger"></a>
+			src="${pageContext.request.contextPath}/assets/web/image/blogger.png" alt="Blogger" title="Blogger"></a>
 	</div>
 	<div class="clear"></div>
 	<div id="powered">
@@ -70,17 +70,17 @@
 		Template By <a target="_blank" href="assets/web/http://harnishdesign.net/">Harnish
 			Design</a>
 		<div class="payments_types">
-			<img src="assets/web/image/payment_paypal.png" alt="paypal" title="PayPal">
-			<img src="assets/web/image/payment_american.png" alt="american-express"
+			<img src="${pageContext.request.contextPath}/assets/web/image/payment_paypal.png" alt="paypal" title="PayPal">
+			<img src="${pageContext.request.contextPath}/assets/web/image/payment_american.png" alt="american-express"
 				title="American Express"> <img
-				src="assets/web/image/payment_2checkout.png" alt="2checkout" title="2checkout">
-			<img src="assets/web/image/payment_maestro.png" alt="maestro" title="Maestro">
-			<img src="assets/web/image/payment_discover.png" alt="discover" title="Discover">
-			<img src="assets/web/image/payment_mastercard.png" alt="mastercard"
-				title="MasterCard"> <img src="assets/web/image/payment_visa.png"
-				alt="visa" title="Visa"> <img src="assets/web/image/payment_sagepay.png"
+				src="${pageContext.request.contextPath}/assets/web/image/payment_2checkout.png" alt="2checkout" title="2checkout">
+			<img src="${pageContext.request.contextPath}/assets/web/image/payment_maestro.png" alt="maestro" title="Maestro">
+			<img src="${pageContext.request.contextPath}/assets/web/image/payment_discover.png" alt="discover" title="Discover">
+			<img src="${pageContext.request.contextPath}/assets/web/image/payment_mastercard.png" alt="mastercard"
+				title="MasterCard"> <img src="${pageContext.request.contextPath}/assets/web/image/payment_visa.png"
+				alt="visa" title="Visa"> <img src="${pageContext.request.contextPath}/assets/web/image/payment_sagepay.png"
 				alt="sagepay" title="sagepay"> <img
-				src="assets/web/image/payment_moneybookers.png" alt="moneybookers"
+				src="${pageContext.request.contextPath}/assets/web/image/payment_moneybookers.png" alt="moneybookers"
 				title="Moneybookers">
 		</div>
 	</div>

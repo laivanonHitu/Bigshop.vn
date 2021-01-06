@@ -46,7 +46,7 @@
 <!-- JS Part End-->
 </head>
 <body>
-
+<h1>${product.name}</h1>
 	<div class="main-wrapper">
 		<jsp:include page="/WEB-INF/views/shere_view/header.jsp" />
 		<jsp:include page="/WEB-INF/views/shere_view/menu.jsp" />
@@ -69,35 +69,35 @@
 				<div class="product-info">
 					<div class="left">
 						<div class="image">
-							<a href="${pageContext.request.contextPath}/assets/web/image/product/${products_details.image }" title="iPhone"
-								class="cloud-zoom colorbox" id='zoom1'
+							<a href="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" title="${product.image }"
+								 class="cloud-zoom colorbox" id='zoom1'
 								rel="adjustX: 0, adjustY:0, tint:'#000000',tintOpacity:0.2, zoomWidth:360, position:'inside', showTitle:false">
-								<img src="${pageContext.request.contextPath}/assets/web/image/product/${products_details.image }" title="#" alt="#"
-								id="image" /><span id="zoom-image"><i class="zoom_bttn"></i>
-									Zoom</span>
+								<img src="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" title="${product.image }" alt="#"
+								id="image" height="300"/><span id="zoom-image"><i class="zoom_bttn"></i>
+									Hiển thị chi tiết</span>
 							</a>
 						</div>
 						
 						<div class="image-additional">
-							<a href="${pageContext.request.contextPath}/assets/web/image/product/${products_details.image }" title="#"
+							<a href="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" title="#"
 								class="cloud-zoom-gallery"
-								rel="useZoom: 'zoom1', smallImage: 'image/product/iphone_1_350x350.jpg' ">
-								<img src="${pageContext.request.contextPath}/assets/web/image/product/${products_details.image }" width="62" title="#"
+								rel="useZoom: 'zoom1', smallImage: 'image/product/iphone_1_350x350.jpg'">
+								<img src="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" width="62" title="#"
 								alt="#" />
-							</a> <a href="${pageContext.request.contextPath}/assets/web/image/product/htc_touch_hd_1.jpg" title="#"
+							</a> <a href="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" title="#"
 								class="cloud-zoom-gallery"
 								rel="useZoom: 'zoom1', smallImage: 'image/product/htc_touch_hd_1_350x350.jpg' ">
-								<img src="${pageContext.request.contextPath}/assets/web/image/product/htc_touch_hd_1_62x62.jpg" width="62"
+								<img src="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" width="62"
 								title="#" alt="#" />
-							</a> <a href="${pageContext.request.contextPath}/assets/web/image/product/htc_touch_hd_11.jpg" title="#"
+							</a> <a href="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" title="#"
 								class="cloud-zoom-gallery"
 								rel="useZoom: 'zoom1', smallImage: 'image/product/htc_touch_hd_11_350x350.jpg' ">
-								<img src="${pageContext.request.contextPath}/assets/web/image/product/htc_touch_hd_11_62x62.jpg" width="62"
+								<img src="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" width="62"
 								title="#" alt="#" />
-							</a> <a href="${pageContext.request.contextPath}/assets/web/image/product/iphone_2.jpg" title="#"
+							</a> <a href="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" title="#"
 								class="cloud-zoom-gallery"
 								rel="useZoom: 'zoom1', smallImage: 'image/product/iphone_2_350x350.jpg' ">
-								<img src="${pageContext.request.contextPath}/assets/web/image/product/iphone_2_62x62.jpg" width="62" title="#"
+								<img src="${pageContext.request.contextPath}/assets/web/image/product/${product.image }" width="62" title="#"
 								alt="#" />
 							</a>
 						</div>
@@ -105,12 +105,12 @@
 					<div class="right">
 						<h1>iPhone</h1>
 						<div class="description">
-							<span>Thương hiệu:</span> <a href="#">${products_details.brand }</a><br> <span>Product 
-								Mã sản phẩm:</span> ${products_details.product_code }<br> <span>Số lượng chỉ còn:</span> ${products_details.quantity }
+							<span>Thương hiệu:</span> <a href="#">${product.brand }</a><br> <span>
+								Mã sản phẩm:</span> ${product.product_code }<br> <span>Số lượng chỉ còn:</span> ${product.inventory }
 						</div>
 						<div class="price">
-							Price: <span class="price-old"><fmt:formatNumber type="number" maxIntegerDigits="10" value="${products_details.price }" /></span>₫
-							<div class="price-tag"><fmt:formatNumber type="number" maxIntegerDigits="10" value="${products_details.discount_price }" />₫</div>
+							Price: <span class="price-old"><fmt:formatNumber type="number" maxIntegerDigits="10" value="${price.price }" /></span>₫
+							<div class="price-tag"><fmt:formatNumber type="number" maxIntegerDigits="10" value="${price.discount_price }" />₫</div>
 							<br> <span class="price-tax">Ex Tax: $101.00</span><br>
 						</div>
 						<div class="cart">

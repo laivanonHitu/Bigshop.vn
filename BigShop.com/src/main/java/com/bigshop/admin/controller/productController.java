@@ -16,9 +16,16 @@ public class productController extends baseController {
 	private ProductService productService;
 
 	@RequestMapping(value = { "/admin/xoa-san-pham/id/{id}" }, method = RequestMethod.GET)
-	public ModelAndView deletePost(@PathVariable("id") int id) {
+	public ModelAndView deleteProduct(@PathVariable("id") int id) {
 		this.productService.deleteProduct(id);
 		_mv = new ModelAndView("redirect:/admin");
+		return _mv;
+	}
+	
+	@RequestMapping(value = { "/admin/chi-tiet-san-pham/id/{id}" }, method = RequestMethod.GET)
+	public ModelAndView detailProduct(@PathVariable("id") int  id) {
+		_mv.setViewName("admin/product/detailsProduct");
+		_mv.addObject("product", this.productService.getProductById(id));
 		return _mv;
 	}
 

@@ -1,27 +1,74 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-
-	xmlns:context="http://www.springframework.org/schema/context"
-
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	
-	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
-	
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="
-		http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd
+    	http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd
         http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/tx
+        https://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd
+        
+        http://www.springframework.org/schema/mvc  
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+        http://www.springframework.org/schema/context 
+   		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
-        http://www.springframework.org/schema/beans/spring-beans.xsd
 
-        http://www.springframework.org/schema/mvc
+	<!-- View -->
+	<context:component-scan
+		base-package="com.bigshop.vn" />
+	<mvc:annotation-driven />
+	<mvc:default-servlet-handler />
 
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	<mvc:resources location="/assets/" mapping="/assets/**"></mvc:resources>
+	<mvc:resources location="/assets/ckfinder/"
+		mapping="/assets/ckfinder/**"></mvc:resources>
 
-        http://www.springframework.org/schema/context
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/" />
 
-        http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+		<property name="suffix" value=".jsp" />
+	</bean>
 
+	<!-- Data -->
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="org.postgresql.Driver" />
+		<property name="url"
+			value="jdbc:postgresql://localhost:5432/bigshop.vn" />
+		<property name="username" value="postgres" />
+		<property name="password" value="251020" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.bigshop.entity"/>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQL82Dialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop>
+			</props>
+		</property>
+	</bean>
 	
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
 </beans>

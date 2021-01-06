@@ -48,6 +48,14 @@ public class PostController extends baseController {
 		_mv.addObject("post", this.postService.getPostById(id));
 		return _mv;
 	}
+	
+	
+	@RequestMapping(value = { "/admin/xem-bai-viet/id/{id}" }, method = RequestMethod.GET)
+	public ModelAndView viewPost(@PathVariable("id") int id) {
+		_mv.setViewName("admin/post/viewPost");
+		_mv.addObject("post", this.postService.getPostById(id));
+		return _mv;
+	}
 
 	@RequestMapping(value = { "/admin/hoan-tat-sua-bai-viet" }, method = RequestMethod.POST)
 	public ModelAndView doUpdatePost(@ModelAttribute("post") Post post) {

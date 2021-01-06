@@ -29,6 +29,7 @@
 <!-- JS Part End-->
 </head>
 <body>
+
 	<div class="main-wrapper">
 		<jsp:include page="/WEB-INF/views/shere_view/header.jsp" />
 		<jsp:include page="/WEB-INF/views/shere_view/menu.jsp" />

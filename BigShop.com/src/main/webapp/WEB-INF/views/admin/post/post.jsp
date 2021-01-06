@@ -145,7 +145,7 @@
 						<c:forEach items="${post}" var="items" varStatus="loop" begin="0" end="${post.size()}">
 							<tr>
 								<td>${loop.index}</td>
-								<td>${items.getTitle()}</td>
+								<td><a href="${pageContext.request.contextPath}/admin/xem-bai-viet/id/${items.getId()}">${items.getTitle()}</a></td>
 								<td>${items.getDescription()}</td>
 								<td>${items.getId_product()}</td>
 								<td><a href="${pageContext.request.contextPath}/admin/xoa-bai-viet/id/${items.getId()}" class="btn btn-danger">Xóa</a></td>

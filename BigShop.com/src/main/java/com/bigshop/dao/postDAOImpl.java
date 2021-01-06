@@ -9,14 +9,22 @@ import org.hibernate.SessionFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.bigshop.entity.Post;
 
 @Repository
 public class postDAOImpl implements postDAO {
+
+	private static SessionFactory sessionFactory = null;
+
 	@Autowired
-	SessionFactory sessionFactory;
+	@Qualifier(value = "sessionFactory")
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		postDAOImpl.sessionFactory = sessionFactory;
+	}
+
 	Logger logger = LoggerFactory.getLogger(postDAOImpl.class);
 
 	@Override
