@@ -1,0 +1,114 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+
+	xmlns:context="http://www.springframework.org/schema/context"
+
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+	xmlns:tx="http://www.springframework.org/schema/tx"
+
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+
+	xsi:schemaLocation="
+		http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd
+        http://www.springframework.org/schema/beans
+
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+
+        http://www.springframework.org/schema/mvc
+
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+
+		http://www.springframework.org/schema/tx
+		
+		https://www.springframework.org/schema/tx/spring-tx.xsd
+			
+        http://www.springframework.org/schema/context
+
+        http://www.springframework.org/schema/context/spring-context.xsd
+        
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+
+	<context:component-scan
+		base-package="com.DienThoaiGiaRe" />
+	<context:component-scan
+		base-package="com.DienThoaiGiaRe.admin.controller" />
+	<mvc:annotation-driven />
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<mvc:default-servlet-handler />
+
+	<mvc:resources location="/assets/" mapping="/assets/**"></mvc:resources>
+
+	<bean id="dataSource"
+		class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName"
+			value="org.postgresql.Driver" />
+		<property name="url"
+			value="jdbc:postgresql://localhost:5432/bigshop.vn?characterEncoding=UTF-8" />
+		<property name="username" value="postgres" />
+		<property name="password" value="251020" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- <property name="configLocations" value="classpath:hibernate.cfg.xml"></property> -->
+		<property name="packagesToScan">
+			<array>
+				<value>com.DienThoaiGiaRe.entity</value>
+			</array>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.temp.use_jdbc_metadata_defaults">false</prop> 
+				<prop key="hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
+
+	<bean id="hibernateTemplateBean"
+		class="org.springframework.orm.hibernate5.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- max file size in bytes -->
+		<!-- 10MB -->
+		<property name="maxUploadSize" value="20971520" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">Error</prop>
+			</props>
+		</property>
+	</bean>
+
+
+
+</beans>
